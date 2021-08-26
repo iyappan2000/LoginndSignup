@@ -1,6 +1,6 @@
 .layout {
-  margin: 40px 80px;
+  margin: 40px 90px 40px 80px;
   border: 1px solid grey;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 600px;
 }

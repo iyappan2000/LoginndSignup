@@ -2,7 +2,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Home from "./Homepage/Home";
 import "./Layout.css";
-import Loginpage from "./loginPage/Loginpage";
+import Login from "./loginPage/Login";
+
 import Sign from "./SignUpPage/Sign";
 function Layout() {
   return (
@@ -11,10 +12,14 @@ function Layout() {
         <Route exact path="/" component={Sign}>
           <Sign />
         </Route>
-        <Route path="/Login" component={Loginpage}>
-          <Loginpage />
+
+        <Route path="/Login" component={Login}>
+          <Login />
         </Route>
-        <Route>
+        {/* <Route to="/Home" component={Home}>
+          <Home />
+        </Route> */}
+        <Route path="/home" component={Home}>
           <Home />
         </Route>
       </div>

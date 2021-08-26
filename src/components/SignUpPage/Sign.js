@@ -9,10 +9,7 @@ function Sign() {
           <Signup />
         </div>
         <div className="pic">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyDsk4UCokMp7mz-mxhzv96aUcCaXfs9Tgfg&usqp=CAU"
-            alt="signup img"
-          />
+          <img src="./assets/pexels-mabel-amber-128299.jpg" alt="signup img" />
         </div>
       </div>
     </div>

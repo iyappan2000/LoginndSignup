@@ -13,6 +13,8 @@
   lighting-color: black;
   color: black;
   height: 600px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .signup {
   display: flex;
