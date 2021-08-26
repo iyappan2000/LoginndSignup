@@ -1,7 +1,13 @@
 import { Form, Input, Button } from "antd";
+import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 
 const Demo = () => {
+  const [input, setInput] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -9,6 +15,14 @@ const Demo = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    setEmail(e.target.value);
+    setPwd(e.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("newname", input);
+  }, [input]);
 
   return (
     <Form
@@ -29,7 +43,7 @@ const Demo = () => {
           },
         ]}
       >
-        <Input />
+        <Input onChange={handleChange} value={input} />
       </Form.Item>
       <br />
       <label style={{ color: "blueviolet" }}>Email Id</label>
@@ -42,7 +56,7 @@ const Demo = () => {
           },
         ]}
       >
-        <Input />
+        <Input onChange={handleChange} value={email} />
       </Form.Item>
       <br />
       <label style={{ color: "blueviolet" }}>Password</label>
@@ -55,20 +69,24 @@ const Demo = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password onChange={handleChange} value={pwd} />
       </Form.Item>
       <br />
 
       <Form.Item>
-        <Link to="/home">
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ padding: "20px 80px", marginLeft: "150px" }}
-          >
-            <p style={{ marginTop: "-10px" }}>SignUp</p>
-          </Button>
-        </Link>
+        {input.value === "" ? (
+          alert("not valid")
+        ) : (
+          <Link to="/home">
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ padding: "20px 80px", marginLeft: "150px" }}
+            >
+              <p style={{ marginTop: "-10px" }}>SignUp</p>
+            </Button>
+          </Link>
+        )}
       </Form.Item>
       <div
         style={{

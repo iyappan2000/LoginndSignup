@@ -1,7 +1,12 @@
 import { Form, Input, Button } from "antd";
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Demo1 = () => {
+  const [input, setInput] = useState("");
+  const [pwd, setPwd] = useState("");
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -10,6 +15,15 @@ const Demo1 = () => {
     console.log("Failed:", errorInfo);
   };
 
+  useEffect(() => {
+    localStorage.setItem("Fullname", input);
+    localStorage.setItem("Fullname", pwd);
+  }, [input, pwd]);
+  const handleClick = (e) => {};
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    setPwd(e.target.value);
+  };
   return (
     <Form
       name="basic"
@@ -26,6 +40,7 @@ const Demo1 = () => {
       }}
     >
       <label style={{ color: "blueviolet" }}>Full Name</label>
+
       <Form.Item
         rules={[
           {
@@ -34,11 +49,12 @@ const Demo1 = () => {
           },
         ]}
       >
-        <Input />
+        <Input required onChange={handleChange} value={input} />
       </Form.Item>
 
       <br />
       <label style={{ color: "blueviolet" }}>Password</label>
+
       <Form.Item
         rules={[
           {
@@ -47,20 +63,24 @@ const Demo1 = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password onChange={handleChange} value={pwd} />
       </Form.Item>
       <br />
 
       <Form.Item>
-        <Link to="/home">
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ padding: "20px 80px", marginLeft: "150px" }}
-          >
-            <p style={{ marginTop: "-10px" }}>SignIn</p>
-          </Button>
-        </Link>
+        {handleClick && (
+          <Link to="/home">
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ padding: "20px 80px", marginLeft: "150px" }}
+            >
+              <p style={{ marginTop: "-10px" }} onClick={handleClick}>
+                SignIn
+              </p>
+            </Button>
+          </Link>
+        )}
       </Form.Item>
       <div
         style={{

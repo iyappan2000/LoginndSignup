@@ -12,8 +12,12 @@ function Login() {
       <div>
         <Loginpage />
       </div>
-      <div className="pic" style={{ marginRight: "-50px" }}>
-        <img src="./assets/pexels-cottonbro-4629633.jpg" alt="" />
+      <div className="pic">
+        <img
+          style={{ marginLeft: "50px" }}
+          src="https://images.pexels.com/photos/3389508/pexels-photo-3389508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
       </div>
     </div>
   );
