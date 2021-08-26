@@ -1,6 +1,6 @@
-import { TextField } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
+
+import Demo1 from "./antdesign1";
 
 import "./Loginpage.css";
 function Loginpage() {
@@ -8,9 +8,13 @@ function Loginpage() {
     <div>
       <div className="Loginpage">
         <div style={{ paddingLeft: "240px" }}>
-          <h1>Sign In</h1>
+          <h1 style={{ color: "blueviolet" }}> Sign In</h1>
         </div>
+
         <div>
+          <Demo1 />
+        </div>
+        {/* <div>
           <div
             style={{
               display: "flex",
@@ -43,7 +47,7 @@ function Loginpage() {
               <p>forget password ? </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

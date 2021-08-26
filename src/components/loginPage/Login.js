@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Loginpage from "./Loginpage";
 
 function Login() {
+  const [darkMode] = useState(() => {
+    const localData = localStorage.getItem("theme");
+    return localData ? JSON.parse(localData) : [];
+  });
+
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex" }} className={darkMode ? "dark" : "light"}>
       <div>
         <Loginpage />
       </div>

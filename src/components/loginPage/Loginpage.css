@@ -2,3 +2,11 @@
   padding: 40px;
   padding-top: 100px;
 }
+.dark {
+  background: black;
+  color: "white";
+}
+.light {
+  background: white;
+  color: black;
+}

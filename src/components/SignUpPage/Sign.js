@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Signup from "./Signup";
+
 import "./Signup.css";
+
 function Sign() {
+  const [darkMode] = useState(() => {
+    const localData = localStorage.getItem("theme");
+    return localData ? JSON.parse(localData) : [];
+  });
   return (
     <div>
-      <div className="signup">
+      <div id="signup" className={darkMode ? "dark" : "light"}>
         <div className="formSide">
           <Signup />
         </div>

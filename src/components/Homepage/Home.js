@@ -6,6 +6,7 @@ function Home() {
     const localData = localStorage.getItem("theme");
     return localData ? JSON.parse(localData) : [];
   }, false);
+
   useEffect(() => {
     localStorage.setItem("theme", darkMode);
   }, [darkMode]);
