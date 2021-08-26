@@ -1,0 +1,31 @@
+.formSide {
+  width: 70%;
+  padding: 50px;
+}
+.form {
+  margin-left: -240px;
+  padding-top: 30px;
+}
+.pic img {
+  width: 500px;
+  padding: 0;
+  margin: 0;
+  lighting-color: black;
+  color: black;
+  height: 600px;
+}
+.signup {
+  display: flex;
+}
+.signupButton {
+  padding: 10px;
+  width: 550px;
+  border: 1px solid darkcyan;
+  background: white;
+  border-radius: 20px;
+}
+.signupTitle {
+  padding-left: 30px;
+
+  width: 200px;
+}
