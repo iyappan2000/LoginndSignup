@@ -4,14 +4,30 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Demo = () => {
-  const [input, setInput] = useState("");
-  const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [input, setInput] = useState(() => {
+    const localData = localStorage.getItem("new Fullname");
+
+    return localData ? JSON.parse(localData) : [];
+  }, "");
+  const [email, setEmail] = useState(() => {
+    const localData = localStorage.getItem("new Email");
+
+    return localData ? JSON.parse(localData) : [];
+  }, "");
+  const [pwd, setPwd] = useState(() => {
+    const localData = localStorage.getItem("new password");
+
+    return localData ? JSON.parse(localData) : [];
+  }, "");
 
   const onFinish = (values) => {
     console.log("Success:", values);
   };
-
+  useEffect(() => {
+    localStorage.setItem(" new Fullname", input);
+    localStorage.setItem(" new Email", input);
+    localStorage.setItem("new password", pwd);
+  }, [input, pwd]);
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -22,7 +38,9 @@ const Demo = () => {
   };
   useEffect(() => {
     localStorage.setItem("newname", input);
-  }, [input]);
+    localStorage.setItem("newname", email);
+    localStorage.setItem("newname", pwd);
+  }, [input, email, pwd]);
 
   return (
     <Form
@@ -43,7 +61,7 @@ const Demo = () => {
           },
         ]}
       >
-        <Input onChange={handleChange} value={input} />
+        <Input onChange={handleChange} />
       </Form.Item>
       <br />
       <label style={{ color: "blueviolet" }}>Email Id</label>
@@ -56,7 +74,7 @@ const Demo = () => {
           },
         ]}
       >
-        <Input onChange={handleChange} value={email} />
+        <Input onChange={handleChange} />
       </Form.Item>
       <br />
       <label style={{ color: "blueviolet" }}>Password</label>
@@ -69,7 +87,7 @@ const Demo = () => {
           },
         ]}
       >
-        <Input.Password onChange={handleChange} value={pwd} />
+        <Input.Password onChange={handleChange} />
       </Form.Item>
       <br />
 

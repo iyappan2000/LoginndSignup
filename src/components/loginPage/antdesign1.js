@@ -4,8 +4,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Demo1 = () => {
-  const [input, setInput] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [input, setInput] = useState(() => {
+    const localData = localStorage.getItem("Fullname");
+
+    return localData ? JSON.parse(localData) : [];
+  }, "");
+  const [pwd, setPwd] = useState(() => {
+    const localData1 = localStorage.getItem("password");
+    return localData1 ? JSON.parse(localData1) : [];
+  }, "");
 
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -17,7 +24,7 @@ const Demo1 = () => {
 
   useEffect(() => {
     localStorage.setItem("Fullname", input);
-    localStorage.setItem("Fullname", pwd);
+    localStorage.setItem("password", pwd);
   }, [input, pwd]);
   const handleClick = (e) => {};
   const handleChange = (e) => {
@@ -49,7 +56,7 @@ const Demo1 = () => {
           },
         ]}
       >
-        <Input required onChange={handleChange} value={input} />
+        <Input required onChange={handleChange} />
       </Form.Item>
 
       <br />
@@ -63,7 +70,7 @@ const Demo1 = () => {
           },
         ]}
       >
-        <Input.Password onChange={handleChange} value={pwd} />
+        <Input.Password onChange={handleChange} />
       </Form.Item>
       <br />
 
